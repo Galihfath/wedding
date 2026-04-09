@@ -37,14 +37,24 @@ export const invitationData = {
   rsvp: {
     phone: '6289663436257',
   },
-gift: {
+  gift: {
     enabled: true,
-    recipientName: 'Galih Fathurrochman',
-    address: 'Alamat lengkap pengiriman hadiah',
-    bank: {
-      name: 'BCA',
-      accountNumber: '1234567890',
-      accountHolder: 'Galih Fathurrochman',
+    title: 'Wedding Gift',
+    description:
+      'Bagi kami, kehadiran dan doa restu adalah anugerah yang tak ternilai. Apabila berkenan memberikan tanda kasih, berikut kami sampaikan informasi dengan penuh rasa syukur.',
+
+    address: {
+      recipient: 'Galih Fathurrochman',
+      detail: 'Alamat lengkap pengiriman hadiah',
+      phone: '08xxxxxxxxxx',
     },
+
+    bankAccounts: [
+      {
+        bank: 'BCA',
+        accountNumber: '1234567890',
+        accountHolder: 'Galih Fathurrochman',
+      },
+    ],
   },
 }

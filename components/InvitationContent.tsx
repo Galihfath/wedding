@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Couple from './Couple'
 import Event from './Event'
 import RSVP from './RSVP'
+import Gift from './Gift'
 
 export default function InvitationContent() {
   return (
@@ -15,6 +16,7 @@ export default function InvitationContent() {
       <Couple />
       <Event />
       <RSVP />
+      <Gift />
     </motion.div>
   )
 }

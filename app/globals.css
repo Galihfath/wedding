@@ -2,10 +2,23 @@
 
 :root {
   --background: #f8f4ee;
+  --background-soft: #f5efe4;
   --foreground: #342f2b;
-  --muted: #7d7a73;
-  --sage: #8a9e85;
-  --line: #e4dacb;
+  --muted: #7a7168;
+
+  --olive: #7f9476;
+  --olive-soft: #a7b59b;
+  --saffron: #cdb55d;
+
+  --line: #e6ded3;
+  --line-soft: rgba(230, 222, 211, 0.65);
+
+  --card: rgba(255, 255, 255, 0.52);
+  --card-strong: rgba(255, 255, 255, 0.7);
+
+  --shadow-soft: 0 10px 30px rgba(74, 57, 38, 0.05);
+  --shadow-glow: 0 20px 60px rgba(120, 95, 68, 0.08);
+
   --font-sans: sans-serif;
   --font-serif: serif;
 }
@@ -15,7 +28,120 @@ html {
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
   color: var(--foreground);
   font-family: var(--font-sans);
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.88), transparent 30%),
+    radial-gradient(circle at 14% 18%, rgba(232, 223, 208, 0.42), transparent 28%),
+    radial-gradient(circle at 86% 16%, rgba(167, 181, 155, 0.14), transparent 22%),
+    linear-gradient(180deg, #fbf8f3 0%, #f8f4ee 42%, #f5efe4 100%);
+  background-attachment: fixed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.22),
+      transparent 18%,
+      transparent 82%,
+      rgba(255, 255, 255, 0.1)
+    ),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.14), transparent 60%);
+  opacity: 0.95;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(120, 95, 68, 0.016) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 95, 68, 0.016) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black 36%, transparent 100%);
+  opacity: 0.22;
+  z-index: 0;
+}
+
+main,
+section,
+header,
+footer,
+div {
+  position: relative;
+  z-index: 1;
+}
+
+::selection {
+  background: rgba(127, 148, 118, 0.22);
+  color: var(--foreground);
+}
+
+input,
+textarea,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+  transition:
+    border-color 0.35s ease,
+    background-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(127, 148, 118, 0.5);
+  box-shadow:
+    0 0 0 4px rgba(127, 148, 118, 0.08),
+    0 14px 30px rgba(76, 63, 50, 0.05);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+button,
+a {
+  transition:
+    transform 0.35s ease,
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.35s ease;
+}
+
+button:hover,
+a:hover {
+  box-shadow: var(--shadow-soft);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(173, 160, 145, 0.58);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(150, 138, 124, 0.78);
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
